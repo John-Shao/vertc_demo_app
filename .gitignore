@@ -1,18 +1,16 @@
 # Gradle files
 .gradle
 .gradle/
+
 login/gradle.properties
 
 /local.properties
 /.idea
-.DS_Store
 build/
 **/build/
 /captures
 .externalNativeBuild
 .cxx
-
-
 
 # Local configuration file (sdk path, etc)
 local.properties
