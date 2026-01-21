@@ -1,21 +1,16 @@
 # Gradle files
-.gradle
 .gradle/
+**/gradle.properties
+local.properties
 
-gradle.properties
-
-/local.properties
-/.idea
+# Build directories
 build/
 **/build/
 /captures
 .externalNativeBuild
 .cxx
 
-# Local configuration file (sdk path, etc)
-local.properties
-
-# Log/OS Files
+# Log Files
 *.log
 
 # Android Studio generated files and folders
@@ -24,14 +19,21 @@ captures/
 .cxx/
 *.aab
 *.apk
+*.ap_
+*.dex
 output-metadata.json
 
-# IntelliJ
+# OS-specific files
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# IntelliJ IDEA
 *.iml
 .idea/
-misc.xml
-deploymentTargetDropDown.xml
-render.experimental.xml
+*.iws
+*.ipr
+out/
 
 # Keystore files
 *.jks
