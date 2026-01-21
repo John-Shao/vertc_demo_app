@@ -1,6 +1,7 @@
 # Gradle files
 .gradle
 .gradle/
+login/gradle.properties
 
 /local.properties
 /.idea
