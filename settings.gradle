@@ -1,0 +1,4 @@
+include ':scene-core'
+rootProject.name = "veRTC_Demo"
+include ':meeting'
+include ':login'
