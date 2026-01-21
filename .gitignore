@@ -2,7 +2,7 @@
 .gradle
 .gradle/
 
-login/gradle.properties
+gradle.properties
 
 /local.properties
 /.idea
@@ -42,4 +42,3 @@ google-services.json
 
 # Android Profiling
 *.hprof
-login/gradle.properties
