@@ -436,7 +436,7 @@ public class PlayFragment extends Fragment implements TextureView.SurfaceTexture
             mRenderCover.setAlpha(1.0f);
 
             ViewCompat.animate(mRenderCover).cancel();
-            ViewCompat.animate(mRenderCover).alpha(0.3f).setListener(new ViewPropertyAnimatorListenerAdapter() {
+ViewCompat.animate(mRenderCover).alpha(0.3f).setListener(new ViewPropertyAnimatorListenerAdapter() {
                 @Override
                 public void onAnimationEnd(View view) {
                     super.onAnimationEnd(view);
@@ -504,11 +504,10 @@ public class PlayFragment extends Fragment implements TextureView.SurfaceTexture
 
         // Calculate inSampleSize
         options.inSampleSize = calculateInSampleSize(options, reqWidth, reqHeight);
-
-        // Decode bitmap with inSampleSize set
+// Decode bitmap with inSampleSize set
         options.inJustDecodeBounds = false;
         return BitmapFactory.decodeFile(path, options);
-    }
+}
 
     public static int calculateInSampleSize(BitmapFactory.Options options, int reqWidth, int reqHeight) {
         // Raw height and width of image
@@ -798,5 +797,27 @@ public class PlayFragment extends Fragment implements TextureView.SurfaceTexture
 
     protected boolean isLandscape() {
         return getActivity().getRequestedOrientation() == ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE || getActivity().getRequestedOrientation() == ActivityInfo.SCREEN_ORIENTATION_REVERSE_LANDSCAPE;
+    }
+
+    /**
+     * 处理缩略图点击事件
+     * 当用户点击右上角的截图缩略图时触发
+     */
+    public void onTakePictureThumbClicked(View view) {
+        // 获取当前显示的缩略图路径
+        String imagePath = (String) view.getTag();
+        
+        if (imagePath != null && !imagePath.isEmpty()) {
+            // 可以在这里启动一个图片查看器或者进行其他处理
+            // 这里暂时只做Toast提示
+            Toast.makeText(getActivity(), "查看截图: " + imagePath, Toast.LENGTH_SHORT).show();
+            
+            // 或者可以启动一个查看大图的Activity
+            // Intent intent = new Intent(getActivity(), ImageViewerActivity.class);
+            // intent.putExtra("image_path", imagePath);
+            // startActivity(intent);
+        } else {
+            Toast.makeText(getActivity(), "没有可用的截图", Toast.LENGTH_SHORT).show();
+        }
     }
 }

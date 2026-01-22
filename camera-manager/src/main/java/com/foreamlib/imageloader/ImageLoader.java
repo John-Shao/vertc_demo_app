@@ -1525,10 +1525,10 @@ public final class ImageLoader {
         }
     }
 
-    private class ImageTask extends AsyncTask<ImageRequest, ImageRequest, Void> {
+private class ImageTask extends AsyncTask<ImageRequest, ImageRequest, Void> {
 
         public final AsyncTask<ImageRequest, ImageRequest, Void> executeOnThreadPool(ImageRequest... params) {
-            if (Build.VERSION.SDK_INT < 4) {
+if (Build.VERSION.SDK_INT < 4) {
                 // Thread pool size is 1
                 return execute(params);
             } else if (Build.VERSION.SDK_INT < 11) {
@@ -1819,15 +1819,13 @@ public final class ImageLoader {
             // Assume this is a corrupt video file.
         } finally {
             try {
-                try {
-                    retriever.release();
-                }
-                catch (IOException ex)
-                {
-                    // Ignore failures while cleaning up.
-                }
-            } catch (RuntimeException ex) {
+                retriever.release();
+            } catch (IOException ex) {
                 // Ignore failures while cleaning up.
+                Log.w("ImageLoader", "IO error releasing retriever", ex);
+            } catch (RuntimeException ex) {
+                // Also catch Runtime exceptions during release
+                Log.w("ImageLoader", "Runtime error releasing retriever", ex);
             }
         }
 

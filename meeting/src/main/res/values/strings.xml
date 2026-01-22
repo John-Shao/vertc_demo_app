@@ -33,7 +33,7 @@
     <string name="sdk_version_label">SDK版本</string>
     <string name="user_name_label">用户名</string>
     <string name="tab_scenes">主页</string>
-    <string name="tab_camera">摄像设备</string>
+    <string name="tab_camera">设备</string>
     <string name="tab_profile">我的</string>
     <string name="delete_account">注销帐号</string>
     <string name="exit_login">退出登录</string>

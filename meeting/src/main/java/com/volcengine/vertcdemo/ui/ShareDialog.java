@@ -6,7 +6,9 @@
 package com.volcengine.vertcdemo.ui;
 
 import android.content.Context;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
+import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -103,7 +105,7 @@ public class ShareDialog extends AppCompatDialog {
         android.view.WindowManager.LayoutParams params = getWindow().getAttributes();
         params.width = WindowUtils.getScreenWidth(getContext());
         params.height = -1;
-        params.gravity = 80;
+        params.gravity = Gravity.BOTTOM;
         getWindow().setAttributes(params);
         getWindow().setContentView(mView);
     }

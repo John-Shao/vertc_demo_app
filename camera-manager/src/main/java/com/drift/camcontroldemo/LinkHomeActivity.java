@@ -397,10 +397,11 @@ public class LinkHomeActivity extends AppCompatActivity {
             List<String> permissions = new ArrayList<>();
             if (PackageManager.PERMISSION_GRANTED != ActivityCompat.checkSelfPermission(this, Manifest.permission.WRITE_EXTERNAL_STORAGE)) {
                 permissions.add(Manifest.permission.WRITE_EXTERNAL_STORAGE);
-                if (Build.VERSION.SDK_INT >= 33)
+                if (Build.VERSION.SDK_INT >= 33) // 检查运行时的 API 级别
                 {
-                    permissions.add(Manifest.permission.READ_MEDIA_IMAGES);
-                    permissions.add(Manifest.permission.READ_MEDIA_VIDEO);
+                    // 使用字符串引用避免编译时错误，因为 targetSdkVersion < 33
+                    permissions.add("android.permission.READ_MEDIA_IMAGES");
+                    permissions.add("android.permission.READ_MEDIA_VIDEO");
                 }
             }
 //            if (PackageManager.PERMISSION_GRANTED != ActivityCompat.checkSelfPermission(this, Manifest.permission.CAMERA)) {

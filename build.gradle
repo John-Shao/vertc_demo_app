@@ -3,9 +3,9 @@ ext {
     RtcAppVersion = "1.0"
     APP_VERSION_NAME = "1.0.0"
 
-    compileSdkVersion = 29
-    minSdkVersion = 19
-    targetSdkVersion = 29
+    compileSdkVersion = 34
+    minSdkVersion = 21  // 提升最小 SDK 版本以更好地支持新功能
+    targetSdkVersion = 33  // 更新到最新版本以支持新权限
 
     VOLCENGINE = '3.54.0.556400'
     VOLCWhiteBoard = '1.6.2'
