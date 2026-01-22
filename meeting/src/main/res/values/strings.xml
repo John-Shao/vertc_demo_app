@@ -142,12 +142,12 @@
     <string name="screen_capture_no_media_projection">此手机无法开启屏幕分享</string>
     <string name="screen_capture_hint">正在录制/投射您的屏幕</string>
 
-    <string name="scene_meeting">视频会议</string>
+    <string name="scene_meeting">发起会议</string>
     <string name="create_choose_role_host">我是主持人</string>
     <string name="create_choose_role_attendee">我是参会者</string>
     <string name="error_host_exist">该房间已有其他主持人</string>
 
-    <string name="scene_class_small">小班课课堂</string>
+    <string name="scene_class_small">加入会议</string>
     <string name="create_choose_role_teacher">我是老师</string>
     <string name="create_choose_role_student">我是学生</string>
     <string name="error_teacher_exist">该房间已有其他老师</string>

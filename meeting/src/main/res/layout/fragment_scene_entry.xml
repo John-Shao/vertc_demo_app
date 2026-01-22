@@ -8,12 +8,13 @@
 
     <ImageView
         android:id="@+id/logo_banner"
-        android:layout_width="200dp"
-        android:layout_height="25dp"
-        android:layout_marginLeft="20dp"
+        android:layout_width="160dp"
+        android:layout_height="50dp"
         android:layout_marginTop="70dp"
         android:src="@drawable/jusi_logo"
         app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintTop_toTopOf="parent" />
 
     <ScrollView
@@ -96,7 +97,7 @@
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 
-            <androidx.constraintlayout.widget.ConstraintLayout
+            <!-- androidx.constraintlayout.widget.ConstraintLayout
                 android:id="@+id/scene_class_large"
                 android:layout_width="match_parent"
                 android:layout_height="120dp"
@@ -126,7 +127,7 @@
                     app:layout_constraintLeft_toLeftOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
 
-            </androidx.constraintlayout.widget.ConstraintLayout>
+            </androidx.constraintlayout.widget.ConstraintLayout -->
 
         </LinearLayout>
     </ScrollView>

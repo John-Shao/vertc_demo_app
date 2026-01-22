@@ -41,7 +41,7 @@ public class SceneEntryFragment extends Fragment {
         super.onViewCreated(view, savedInstanceState);
         view.findViewById(R.id.scene_meeting).setOnClickListener(v -> startScene(CreateMeetingActivity.class, RoomType.MEETING));
         view.findViewById(R.id.scene_class_small).setOnClickListener(v -> startScene(CreateClassSmallActivity.class, RoomType.CLASS_SMALL));
-        view.findViewById(R.id.scene_class_large).setOnClickListener(v -> startScene(CreateClassLargeActivity.class, RoomType.CLASS_LARGE));
+        // view.findViewById(R.id.scene_class_large).setOnClickListener(v -> startScene(CreateClassLargeActivity.class, RoomType.CLASS_LARGE));
     }
 
     private void startScene(Class<? extends Activity> targetActivity, RoomType roomType) {
