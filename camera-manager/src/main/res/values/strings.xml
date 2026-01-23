@@ -53,4 +53,12 @@
     <string name="link_live_url">Live URL:</string>
     <string name="link_input_live_url">input live URL</string>
     <string name="link_send_successfully">Send Successfully</string>
+
+    <!-- Meeting room strings -->
+    <string name="create_input_room_id_hint">Please enter room ID</string>
+    <string name="create_input_room_id_length_warn">Room ID cannot exceed 18 characters</string>
+    <string name="create_input_room_id_content_warn">Please enter numbers, letters or symbols @_-</string>
+    <string name="create_input_user_name_hint">Please enter nickname</string>
+    <string name="create_input_user_name_content_warn">Please enter Chinese, numbers, letters or symbols @_-</string>
+    <string name="create_input_user_name_length_warn">Nickname cannot exceed 18 characters</string>
 </resources>

@@ -54,4 +54,12 @@
     <string name="link_live_url">直播地址:</string>
     <string name="link_input_live_url">输入直播地址</string>
     <string name="link_send_successfully">发送成功</string>
+
+    <!-- Meeting room strings -->
+    <string name="create_input_room_id_hint">请输入房间ID</string>
+    <string name="create_input_room_id_length_warn">房间ID长度不能超过18位</string>
+    <string name="create_input_room_id_content_warn">请输入数字、英文字母或符号@_-</string>
+    <string name="create_input_user_name_hint">请输入昵称</string>
+    <string name="create_input_user_name_content_warn">请输入中文、数字、英文字母或符号@_-</string>
+    <string name="create_input_user_name_length_warn">昵称长度不能超过18位</string>
 </resources>
