@@ -42,7 +42,7 @@ public class LinkHomeActivity extends AppCompatActivity {
     private ImageView ivArrowUp;
     private RecyclerView rvList;
     private ImageView ivArrowDown;
-    private TextView tvVersion;
+    // private TextView tvVersion;
     private RelativeLayout rlAddCamera;
 
 //    protected CameraSettingNew cameraSetting = null;
@@ -71,7 +71,7 @@ public class LinkHomeActivity extends AppCompatActivity {
         ivArrowUp = (ImageView) findViewById(R.id.iv_arrow_up);
         rvList = (RecyclerView) findViewById(R.id.rv_list);
         ivArrowDown = (ImageView) findViewById(R.id.iv_arrow_down);
-        tvVersion = (TextView) findViewById(R.id.tv_version);
+        // tvVersion = (TextView) findViewById(R.id.tv_version);
         rlAddCamera = (RelativeLayout) findViewById(R.id.rl_add_camera);
         rlAddCamera.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -85,13 +85,14 @@ public class LinkHomeActivity extends AppCompatActivity {
 
         camInfoList = new ArrayList<CamStatus>();
         camsOnline = new ArrayList<String>();
-
+        /*
         try {
             String versionName = getPackageManager().getPackageInfo(getPackageName(), 0).versionName;
             tvVersion.setText("V" + versionName);
         } catch (Exception e) {
             tvVersion.setText("V1.0");
         }
+        */
         //test code
 //        camsOnline.add("192.168.1.104");
 //        camsOnline.add("192.168.1.105");

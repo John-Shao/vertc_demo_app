@@ -102,7 +102,7 @@
         app:srcCompat="@drawable/link_arrow_down_icon"
         android:visibility="invisible"/>
 
-    <TextView
+    <!-- TextView
         android:id="@+id/tv_version"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -111,5 +111,5 @@
         android:layout_marginBottom="50dp"
         android:text="V1.0.0.2-0803"
         android:textColor="@color/white"
-        android:textSize="17sp" />
+        android:textSize="17sp" / -->
 </RelativeLayout>

@@ -47,7 +47,7 @@ public class CameraHomeFragment extends Fragment {
     private ImageView ivArrowUp;
     private RecyclerView rvList;
     private ImageView ivArrowDown;
-    private TextView tvVersion;
+    // private TextView tvVersion;
     private RelativeLayout rlAddCamera;
 
     private ArrayList<CamStatus> camInfoList;
@@ -73,7 +73,7 @@ public class CameraHomeFragment extends Fragment {
         ivArrowUp = view.findViewById(R.id.iv_arrow_up);
         rvList = view.findViewById(R.id.rv_list);
         ivArrowDown = view.findViewById(R.id.iv_arrow_down);
-        tvVersion = view.findViewById(R.id.tv_version);
+        // tvVersion = view.findViewById(R.id.tv_version);
         rlAddCamera = view.findViewById(R.id.rl_add_camera);
 
         rlAddCamera.setOnClickListener(v -> {
@@ -89,7 +89,7 @@ public class CameraHomeFragment extends Fragment {
     private void initData() {
         camInfoList = new ArrayList<>();
         camsOnline = new ArrayList<>();
-
+        /*
         try {
             if (getActivity() != null) {
                 String versionName = getActivity().getPackageManager()
@@ -99,7 +99,7 @@ public class CameraHomeFragment extends Fragment {
         } catch (Exception e) {
             tvVersion.setText("V1.0");
         }
-
+        */
         mForeamCamCtrl = ForeamCamCtrl.getInstance();
         mForeamCamCtrl.setOnReceiveUDPMsgListener(mOnReceiveBoardcastMsgListener);
         mForeamCamCtrl.startReceive();
