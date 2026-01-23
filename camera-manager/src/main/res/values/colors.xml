@@ -34,4 +34,15 @@
     <color name="gray_252525">#FF252525</color>
     <color name="gray">#ff808080</color>
     <color name="black_trans60">#99000000</color>
+
+    <!-- Meeting room colors -->
+    <color name="room_input_divider_bg">#FFFFFFFF</color>
+    <color name="title_bar_title">#1D2129</color>
+    <color name="title_bar_sub_title">#86909C</color>
+    <color name="room_input_txt_hint">#FFFFFFFF</color>
+    <color name="join_room_txt_enabled">#FFFFFFFF</color>
+    <color name="join_room_txt_disabled">#FFFFFFFF</color>
+    <color name="join_room_bg_enabled">#FF165DFF</color>
+    <color name="join_room_bg_disabled">#66165DFF</color>
+    <color name="transparent">#00000000</color>
 </resources>
