@@ -22,8 +22,8 @@ public class RtcDataProviderImpl implements IUIRtcDef.IRtcDataProvider {
     private final MutableLiveData<Boolean> mMicPermission = new MutableLiveData<>(Boolean.FALSE);
     private final MutableLiveData<Boolean> mCamPermission = new MutableLiveData<>(Boolean.FALSE);
 
-    private final MutableLiveData<Boolean> mPreferOpenMic = new MutableLiveData<>(Boolean.TRUE);
-    private final MutableLiveData<Boolean> mPreferOpenCam = new MutableLiveData<>(Boolean.TRUE);
+    private final MutableLiveData<Boolean> mPreferOpenMic = new MutableLiveData<>(Boolean.FALSE);
+    private final MutableLiveData<Boolean> mPreferOpenCam = new MutableLiveData<>(Boolean.FALSE);
     private final MutableLiveData<Boolean> mFacingFront = new MutableLiveData<>(Boolean.TRUE);
     private final MutableLiveData<Boolean> mSpeakerPhone = new MutableLiveData<>(Boolean.TRUE);
     private final MutableLiveData<Boolean> mScreenAudio = new MutableLiveData<>(Boolean.FALSE);

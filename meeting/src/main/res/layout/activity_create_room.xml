@@ -138,7 +138,8 @@
         android:layout_width="match_parent"
         android:layout_height="46dp"
         android:layout_gravity="bottom"
-        android:layout_marginBottom="60dp">
+        android:layout_marginBottom="60dp"
+        android:visibility="gone">
 
         <ImageView
             android:id="@+id/create_room_mic"
