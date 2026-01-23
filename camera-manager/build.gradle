@@ -29,6 +29,10 @@ android {
     buildFeatures {
         buildConfig true
     }
+
+    lint {
+        disable 'UsingOnClickInXml'
+    }
 }
 
 repositories {
