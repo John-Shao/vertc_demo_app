@@ -154,23 +154,9 @@ public class LinkHomeActivity extends AppCompatActivity {
         m_videoListRecycleAdapter.setOnRecordClickListener(new LinkCamListAdapter.OnRecordClickListener() {
             @Override
             public void OnRecordClickListener(View view, int position) {
-//                CamStatus cameraStatusNew = camInfoList.get(position);
-//
-//                if(cameraStatusNew.getmCameraStatus().getCapture_mode()==0) {
-//                    if (cameraStatusNew.getmCameraStatus().getRec_time() == 0) {//录像或者拍照均可
-//                        startRecord(cameraStatusNew.getCamIP());
-//                        cameraStatusNew.getmCameraStatus().setRec_time(1);
-//                        m_videoListRecycleAdapter.notifyItemChanged(position);
-//                    } else {
-//                        stopRecord(cameraStatusNew.getCamIP());
-//                        cameraStatusNew.getmCameraStatus().setRec_time(0);
-//                        m_videoListRecycleAdapter.notifyItemChanged(position);
-//                    }
-//                }
-//                else
-//                {
-//                    startRecord(cameraStatusNew.getCamIP());
-//                }
+                // 打开加入会议页面
+                Intent intent = new Intent(LinkHomeActivity.this, JoinMeetingActivity.class);
+                startActivity(intent);
             }
         });
 

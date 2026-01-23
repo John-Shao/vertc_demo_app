@@ -30,6 +30,10 @@
             android:name="com.drift.camcontroldemo.LinkHomeActivity"
             android:exported="false"
             android:screenOrientation="portrait" />
+        <activity
+            android:name="com.drift.camcontroldemo.JoinMeetingActivity"
+            android:exported="false"
+            android:screenOrientation="portrait" />
     </application>
 
 </manifest>

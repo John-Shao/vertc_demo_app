@@ -150,7 +150,9 @@ public class CameraHomeFragment extends Fragment {
         m_videoListRecycleAdapter = new LinkCamListAdapter(getActivity(), camInfoList);
 
         m_videoListRecycleAdapter.setOnRecordClickListener((view, position) -> {
-            // Record click functionality (currently disabled in original code)
+            // 打开加入会议页面
+            Intent intent = new Intent(getActivity(), JoinMeetingActivity.class);
+            startActivity(intent);
         });
 
         m_videoListRecycleAdapter.setOnSettingClickListener((view, pos) -> {
