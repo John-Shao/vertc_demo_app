@@ -155,6 +155,9 @@ public class CreateMeetingActivity extends BaseActivity {
                 return;
             }
             changeUserName(userName);
+            // 进入房间前自动打开麦克风和摄像头
+            mUIRtcCore.openMic(true);
+            mUIRtcCore.openCam(true);
             joinRoom(roomId, userName, roleHost.isChecked());
             IMEUtils.closeIME(v);
         });
