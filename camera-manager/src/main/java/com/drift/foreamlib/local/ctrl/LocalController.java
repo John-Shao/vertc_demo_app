@@ -428,9 +428,9 @@ public class LocalController extends com.drift.foreamlib.local.ctrl.LocalListene
         Element rootElement = null;
         try {
             InputStream is = new ByteArrayInputStream(response.getBytes("UTF-8"));
-            DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance(); // ȡ��DocumentBuilderFactoryʵ��
-            DocumentBuilder builder = factory.newDocumentBuilder(); // ��factory��ȡDocumentBuilderʵ��
-            Document doc = builder.parse(is); // ���������� �õ�Documentʵ��
+            DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
+            DocumentBuilder builder = factory.newDocumentBuilder();
+            Document doc = builder.parse(is);
             rootElement = doc.getDocumentElement();
             NodeList nodeList = doc.getElementsByTagName("Response");
             Element element = (Element) nodeList.item(0);

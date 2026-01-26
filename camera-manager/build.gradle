@@ -12,6 +12,10 @@ android {
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         consumerProguardFiles "consumer-rules.pro"
+
+        // 配置 MEET_SERVER_URL
+        // buildConfigField "String", "MEET_SERVER_URL", "\"${project.findProperty('MEET_SERVER_URL') ?: ''}\""
+        buildConfigField('String', 'MEET_SERVER_URL', "\"${project.MEET_SERVER_URL}\"")
     }
 
     buildTypes {
