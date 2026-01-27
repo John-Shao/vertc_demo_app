@@ -61,4 +61,6 @@
     <string name="create_input_user_name_hint">Please enter nickname</string>
     <string name="create_input_user_name_content_warn">Please enter Chinese, numbers, letters or symbols @_-</string>
     <string name="create_input_user_name_length_warn">Nickname cannot exceed 18 characters</string>
+    <string name="join_meeting_cam_ip_empty">Camera IP is empty</string>
+    <string name="join_meeting_request_failed">Failed to join meeting</string>
 </resources>

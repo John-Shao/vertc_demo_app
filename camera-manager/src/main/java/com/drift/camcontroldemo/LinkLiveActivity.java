@@ -59,7 +59,7 @@ public class LinkLiveActivity extends AppCompatActivity {
                 InputMethodManager imm = (InputMethodManager) LinkLiveActivity.this.getSystemService(Context.INPUT_METHOD_SERVICE);
                 imm.hideSoftInputFromWindow(getEtLiveUrlValue().getWindowToken( ), 0);
                 liveUrl = getEtLiveUrlValue().getText().toString();
-                localController.startPushStreamWithURL(camIP, liveUrl, ""+streamRes, "" + (streamBitrate/8), new LocalListener.OnCommonResListener() {
+                localController.startPushStreamWithURL(camIP, liveUrl, "" + streamRes, "" + (streamBitrate/8), new LocalListener.OnCommonResListener() {
                     @Override
                     public void onCommonRes(boolean success) {
                         Log.e(TAG, "kc test: bSuccess is" + success);

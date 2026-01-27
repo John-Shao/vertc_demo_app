@@ -188,7 +188,7 @@ public class LocalController extends com.drift.foreamlib.local.ctrl.LocalListene
         task.executeOnThreadPool(path);
     }
 
-    public void startPullStream(String serverIp, String rtspUrl, OnCommonResListener ls) {//
+    public void startPullStreamWithURL(String serverIp, String rtspUrl, OnCommonResListener ls) {//
         String path;
         mOnCommonResListener = ls;
         rtspUrl = rtspUrl.replace("&", "***");
@@ -196,7 +196,6 @@ public class LocalController extends com.drift.foreamlib.local.ctrl.LocalListene
         LoadXMLTask task = new LoadXMLTask(CMD_START_RTSP, this);
         mTasks.add(task);
         task.executeOnThreadPool(path);
-
     }
 
      public void stopPullStream(String serverIp, OnCommonResListener ls) {//
