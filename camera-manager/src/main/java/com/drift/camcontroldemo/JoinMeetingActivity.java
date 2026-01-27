@@ -87,8 +87,7 @@ public class JoinMeetingActivity extends AppCompatActivity {
      * @param userName 用户名
      */
     private void handleJoinMeeting(String roomId, String userName) {
-        
-
+        /*
         LocalController localController = new LocalController();
 
 
@@ -101,8 +100,6 @@ public class JoinMeetingActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
-
-
-
+        */
     }
 }
