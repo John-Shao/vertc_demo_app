@@ -32,6 +32,7 @@ public class CamStatus extends ActivityUtil.JSONObjectHelper implements Serializ
 	private StreamSettingNew mStreamSetting;
 
 	private String modelName;
+	private String serialNumber;
 
 	public CamStatus() {
 
@@ -141,5 +142,13 @@ public class CamStatus extends ActivityUtil.JSONObjectHelper implements Serializ
 
 	public void setModelName(String modelName) {
 		this.modelName = modelName;
+	}
+
+	public String getSerialNumber() {
+		return serialNumber;
+	}
+
+	public void setSerialNumber(String serialNumber) {
+		this.serialNumber = serialNumber;
 	}
 }

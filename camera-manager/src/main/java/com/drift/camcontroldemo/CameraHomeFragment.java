@@ -155,6 +155,7 @@ public class CameraHomeFragment extends Fragment {
             Intent intent = new Intent(getActivity(), JoinMeetingActivity.class);
 
             intent.putExtra("camIP",camStatus.getCamIP());
+            intent.putExtra("serialNumber",camStatus.getSerialNumber());
             intent.putExtra("streamRes",camStatus.getmStreamSetting().getStream_res());
             intent.putExtra("streamBitrate",camStatus.getmStreamSetting().getStream_bitrate());
 
@@ -196,6 +197,7 @@ public class CameraHomeFragment extends Fragment {
             if (cameraStatusNew.isOffline()) {
                 cameraStatusNew.setOffline(false);
                 cameraStatusNew.setCamIP(camIP);
+                cameraStatusNew.setSerialNumber(serialNum);
                 cameraStatusNew.setModelName(parseModelName(serialNum));
                 getCamStatus(camIP);
                 m_videoListRecycleAdapter.notifyItemChanged(index);

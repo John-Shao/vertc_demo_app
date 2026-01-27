@@ -41,6 +41,7 @@ public class JoinMeetingActivity extends AppCompatActivity {
     private static final int USER_NAME_MAX_LENGTH = 18;
 
     private String mCamIP;
+    private String mSerialNumber;
     private String mStreamRes;
     private String mStreamBitrate;
     private EditText mInputRoomId;
@@ -53,10 +54,11 @@ public class JoinMeetingActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_join_meeting);
 
-        // 从 Intent 中获取 camIP
+        // 从 Intent 中获取 camIP 和 serialNumber
         Intent intent = getIntent();
         if (intent != null) {
             mCamIP = intent.getStringExtra("camIP");
+            mSerialNumber = intent.getStringExtra("serialNumber");
             mStreamRes = "" + intent.getIntExtra("streamRes", 0);
             mStreamBitrate = "" + (intent.getIntExtra("streamBitrate", 0) / 8);
         }
@@ -137,7 +139,7 @@ public class JoinMeetingActivity extends AppCompatActivity {
                 JSONObject data = new JSONObject();
                 data.put("user_id", userName);
                 data.put("room_id", roomId);
-                data.put("device_sn", mCamIP); // 使用 camIP 作为设备序列号
+                data.put("device_sn", mSerialNumber); // 使用设备序列号
                 params.put("data", data);
 
                 params.put("timestamp", System.currentTimeMillis());
