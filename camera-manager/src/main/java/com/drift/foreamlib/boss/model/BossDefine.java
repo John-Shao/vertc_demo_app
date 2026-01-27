@@ -9,7 +9,6 @@ public class BossDefine {
 	// DLNA file path
 	public final static String BIGIMG_IP = SERVER_IP + ":8200/MediaItems/";
 
-	// ɾ���ļ�
 	public final static String DELIMG_IP = SERVER_IP + ":8200/DeleteMedia/";
 
 	// SD card file path
@@ -57,17 +56,17 @@ public class BossDefine {
 
 	public final static int RES_SUCCESS = 1;
 	public final static int RES_FAIL = 0;
-	// ��ȡ�����Ϣ
+
 	public final static String GET_CAMERA_INFO = URL_BASIC
 			+ "fd_get_camera_info";
-	// ¼��
+
 	public final static String RECORD = URL_BASIC + "fd_record";
-	// ¼��2
+
 	public final static int FD_RECORD_STOP_RECORDING = 0;
 	public final static int FD_RECORD_START_RECORDING = 1;
 	public final static int FD_RECORD_TAKING_PHOTO = 2;
 	public final static String RECORD_2 = URL_BASIC + "fd_record_2&data=";
-	// ����Mode
+
 	public final static int FD_CAPTURE_MODE_VIDEO = 0;
 	public final static int FD_CAPTURE_MODE_PHOTO = 1;
 	public final static int FD_CAPTURE_MODE_TIMELAPSE = 2;
@@ -113,15 +112,15 @@ public class BossDefine {
 			+ "fd_set_mic_sensitivity";
 	//
 	public final static String CAMERA_OFF = URL_BASIC + "fd_set_camera_off";
-	// �ָ�Ĭ������
+
 	public final static String RESTORE_DEFAULT_SETTINGS = URL_BASIC
 			+ "fd_restore_default_setting&data=0";
-	// ��������ͷ���
+
 	public final static String SET_CAMERA_NAME = URL_BASIC
 			+ "fd_set_camera_name";
-	// ��������ͷ
+
 	public final static String REBOOT_CAMERA = URL_BASIC + "fd_reboot_camera";
-	// ��ȡ����ͷ������Ϣ
+
 	public final static String GET_CAMERA_STATUS = URL_BASIC
 			+ "fd_get_camera_status";
 	// this api is for new version DV
@@ -143,28 +142,27 @@ public class BossDefine {
 	public final static String GET_BURST_SETTING = URL_BASIC
 			+ "fd_get_photoburst_setting";
 
-	// ����WIFI��ģʽ
 	public final static String WIFI_MODE_AP = URL_BASIC
 			+ "fd_set_wifi_mode_ap&ssid=%s&security=0";
 	public final static String WIFI_MODE_AP_WITH_PWD = URL_BASIC
 			+ "fd_set_wifi_mode_ap&ssid=%s&security=1&password=%s";
-	// Stationģʽ
+
 	public final static String WIFI_MODE_STATION = URL_BASIC
 			+ "fd_set_wifi_mode_station";
-	// ����ʱ��
+
 	public final static String SET_DATE_TME = URL_BASIC + "fd_set_time";
-	// ���ÿͻ���
+
 	public final static String WIFI_CLIENT = URL_BASIC + "fd_set_wifi_client";
-	// ��ȡ��ص���
+
 	public final static String GET_BATTERY = URL_BASIC
 			+ "fd_get_camera_battery";
-	// �ļ�ɾ��
+
 	public final static String FILE_DEL = URL_BASIC
 			+ "fd_del_media_file&type=%d&name=%s";
-	// ��ȡ¼��״̬
+
 	public final static String GET_CAMERA_STATES = URL_BASIC
 			+ "fd_get_record_status";
-	// ����shoot����״̬
+
 	public final static String ENTER_SHOOT = URL_BASIC + "fd_send_app_status";
 	// set car DV rotating
 	public final static String ROTATING = URL_BASIC + "fd_set_video_rotation";
