@@ -182,9 +182,10 @@ public class MeetingRoomManager extends AbsMeetingManager implements IMeetingRtm
     @Override
     public void onRoomReleased(int reason) {
         getDataProvider().setRoomState(IUIMeetingDef.RoomState.RELEASED);
-        if (reason == IMeetingRtmEventHandler.ROOM_RELEASED_TIME_LIMIT) {
-            runOnUIThread(() -> SafeToast.show(R.string.tips_time_limit));
-        }
+        // 注释掉体验时限提示
+        // if (reason == IMeetingRtmEventHandler.ROOM_RELEASED_TIME_LIMIT) {
+        //     runOnUIThread(() -> SafeToast.show(R.string.tips_time_limit));
+        // }
     }
 
     @Override

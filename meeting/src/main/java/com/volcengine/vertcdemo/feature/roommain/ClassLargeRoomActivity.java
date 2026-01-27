@@ -106,14 +106,15 @@ public class ClassLargeRoomActivity extends BaseActivity {
         });
         mUIEduRoom.getDataProvider().getTick().observe(this, duration -> {
             if (duration != null) {
-                if (duration == 0) {
-                    IUIEduDef.IEduDataProvider dataProvider = mUIEduRoom.getDataProvider();
-                    if (dataProvider instanceof EduDataProviderImpl) {
-                        SafeToast.show(R.string.tips_time_limit);
-                        ((EduDataProviderImpl) dataProvider).setRoomState(IUIEduDef.RoomState.RELEASED);
-                        return;
-                    }
-                }
+                // 注释掉体验时限检查，允许无限时长
+                // if (duration == 0) {
+                //     IUIEduDef.IEduDataProvider dataProvider = mUIEduRoom.getDataProvider();
+                //     if (dataProvider instanceof EduDataProviderImpl) {
+                //         SafeToast.show(R.string.tips_time_limit);
+                //         ((EduDataProviderImpl) dataProvider).setRoomState(IUIEduDef.RoomState.RELEASED);
+                //         return;
+                //     }
+                // }
                 showDuration(duration);
             }
         });

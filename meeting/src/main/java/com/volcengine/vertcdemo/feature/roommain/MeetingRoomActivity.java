@@ -157,14 +157,15 @@ public class MeetingRoomActivity extends BaseActivity implements View.OnClickLis
         });
         mUIMeetingRoom.getDataProvider().getTick().observe(owner, duration -> {
             if (duration != null) {
-                if (duration == 0) {
-                    IUIMeetingDef.IMeetingDataProvider dataProvider = mUIMeetingRoom.getDataProvider();
-                    if (dataProvider instanceof MeetingDataProviderImpl) {
-                        SafeToast.show(R.string.tips_time_limit);
-                        ((MeetingDataProviderImpl) dataProvider).setRoomState(IUIMeetingDef.RoomState.RELEASED);
-                        return;
-                    }
-                }
+                // 注释掉体验时限检查，允许无限时长
+                // if (duration == 0) {
+                //     IUIMeetingDef.IMeetingDataProvider dataProvider = mUIMeetingRoom.getDataProvider();
+                //     if (dataProvider instanceof MeetingDataProviderImpl) {
+                //         SafeToast.show(R.string.tips_time_limit);
+                //         ((MeetingDataProviderImpl) dataProvider).setRoomState(IUIMeetingDef.RoomState.RELEASED);
+                //         return;
+                //     }
+                // }
                 showDuration(duration);
             }
         });
