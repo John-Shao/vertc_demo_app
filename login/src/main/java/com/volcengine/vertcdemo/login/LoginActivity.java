@@ -7,8 +7,8 @@ import android.content.Intent;
 import android.graphics.Color;
 import android.net.Uri;
 import android.os.Bundle;
+import android.os.CountDownTimer;
 import android.text.Editable;
-import android.text.InputFilter;
 import android.text.Spannable;
 import android.text.SpannableStringBuilder;
 import android.text.TextPaint;
@@ -23,7 +23,6 @@ import androidx.annotation.NonNull;
 import com.ss.video.rtc.demo.basic_module.acivities.BaseActivity;
 import com.ss.video.rtc.demo.basic_module.adapter.TextWatcherAdapter;
 import com.ss.video.rtc.demo.basic_module.utils.IMEUtils;
-import com.volcengine.vertcdemo.common.LengthFilterWithCallback;
 import com.volcengine.vertcdemo.common.SolutionToast;
 import com.volcengine.vertcdemo.core.SolutionDataManager;
 import com.volcengine.vertcdemo.core.eventbus.RefreshUserNameEvent;
@@ -37,10 +36,13 @@ import com.volcengine.vertcdemo.login.databinding.ActivityLoginBinding;
 import java.util.regex.Pattern;
 
 public class LoginActivity extends BaseActivity implements View.OnClickListener {
-    public static final String INPUT_REGEX = "^[\\u4e00-\\u9fa5a-zA-Z0-9@_-]+$";
-    private ActivityLoginBinding mViewBinding;
+    private static final String PHONE_REGEX = "^1[3-9]\\d{9}$";
+    private static final int COUNTDOWN_SECONDS = 60;
 
+    private ActivityLoginBinding mViewBinding;
     private boolean mIsPolicyChecked = false;
+    private CountDownTimer mCountDownTimer;
+    private boolean mIsCountingDown = false;
 
     private final TextWatcherAdapter mTextWatcher = new TextWatcherAdapter() {
         @Override
@@ -60,21 +62,14 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener 
         mViewBinding.verifyConfirm.setOnClickListener(this);
         mViewBinding.verifyRootLayout.setOnClickListener(this);
         mViewBinding.verifyPolicyText.setOnClickListener(this);
+        mViewBinding.verifySendCodeBtn.setOnClickListener(this);
+
         mViewBinding.verifyPolicyText.setText(getSpannedText());
         mViewBinding.verifyPolicyText.setMovementMethod(LinkMovementMethod.getInstance());
 
-        InputFilter userNameFilter = new LengthFilterWithCallback(18, (overflow) -> {
-            if (overflow) {
-                mViewBinding.verifyInputUserNameWaringTv.setVisibility(View.VISIBLE);
-                mViewBinding.verifyInputUserNameWaringTv.setText(getString(R.string.content_limit, "18"));
-            } else {
-                mViewBinding.verifyInputUserNameWaringTv.setVisibility(View.INVISIBLE);
-            }
-        });
-        InputFilter[] userNameFilters = new InputFilter[]{userNameFilter};
-        mViewBinding.verifyInputUserNameEt.setFilters(userNameFilters);
+        mViewBinding.verifyInputPhoneEt.addTextChangedListener(mTextWatcher);
+        mViewBinding.verifyInputCodeEt.addTextChangedListener(mTextWatcher);
 
-        mViewBinding.verifyInputUserNameEt.addTextChangedListener(mTextWatcher);
         setupConfirmStatus();
     }
 
@@ -131,37 +126,102 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener 
         } else if (v == mViewBinding.verifyPolicyText) {
             updatePolicyChecked();
             setupConfirmStatus();
+        } else if (v == mViewBinding.verifySendCodeBtn) {
+            onClickSendCode();
         }
     }
 
     private void setupConfirmStatus() {
-        String userName = mViewBinding.verifyInputUserNameEt.getText().toString().trim();
+        String phone = mViewBinding.verifyInputPhoneEt.getText().toString().trim();
+        String code = mViewBinding.verifyInputCodeEt.getText().toString().trim();
 
-        if (TextUtils.isEmpty(userName)) {
+        if (TextUtils.isEmpty(phone) || TextUtils.isEmpty(code)) {
             mViewBinding.verifyConfirm.setAlpha(0.3F);
             mViewBinding.verifyConfirm.setEnabled(false);
         } else {
-            boolean matchRegex = Pattern.matches(INPUT_REGEX, userName);
-            if (mIsPolicyChecked && matchRegex) {
+            boolean matchPhoneRegex = Pattern.matches(PHONE_REGEX, phone);
+            if (mIsPolicyChecked && matchPhoneRegex && code.length() >= 4) {
                 mViewBinding.verifyConfirm.setEnabled(true);
                 mViewBinding.verifyConfirm.setAlpha(1F);
             } else {
-                if (!matchRegex) {
-                    mViewBinding.verifyInputUserNameWaringTv.setVisibility(View.VISIBLE);
-                    mViewBinding.verifyInputUserNameWaringTv.setText(getString(R.string.content_limit, "18"));
-                }
                 mViewBinding.verifyConfirm.setAlpha(0.3F);
                 mViewBinding.verifyConfirm.setEnabled(false);
             }
         }
     }
 
+    private void onClickSendCode() {
+        String phone = mViewBinding.verifyInputPhoneEt.getText().toString().trim();
+
+        if (TextUtils.isEmpty(phone)) {
+            mViewBinding.verifyInputPhoneWarningTv.setVisibility(View.VISIBLE);
+            mViewBinding.verifyInputPhoneWarningTv.setText(R.string.phone_number_invalid);
+            return;
+        }
+
+        if (!Pattern.matches(PHONE_REGEX, phone)) {
+            mViewBinding.verifyInputPhoneWarningTv.setVisibility(View.VISIBLE);
+            mViewBinding.verifyInputPhoneWarningTv.setText(R.string.phone_number_invalid);
+            return;
+        }
+
+        if (mIsCountingDown) {
+            return;
+        }
+
+        mViewBinding.verifyInputPhoneWarningTv.setVisibility(View.INVISIBLE);
+
+        // 调用发送验证码接口
+        LoginApi.sendSmsCode(phone, new IRequestCallback<ServerResponse<Void>>() {
+            @Override
+            public void onSuccess(ServerResponse<Void> data) {
+                SolutionToast.show(R.string.sms_code_sent);
+                startCountDown();
+            }
+
+            @Override
+            public void onError(int errorCode, String message) {
+                SolutionToast.show(ErrorTool.getErrorMessageByErrorCode(errorCode, message));
+            }
+        });
+    }
+
+    private void startCountDown() {
+        mIsCountingDown = true;
+        mViewBinding.verifySendCodeBtn.setEnabled(false);
+
+        mCountDownTimer = new CountDownTimer(COUNTDOWN_SECONDS * 1000, 1000) {
+            @Override
+            public void onTick(long millisUntilFinished) {
+                int seconds = (int) (millisUntilFinished / 1000);
+                mViewBinding.verifySendCodeBtn.setText(getString(R.string.resend_after_seconds, seconds));
+            }
+
+            @Override
+            public void onFinish() {
+                mIsCountingDown = false;
+                mViewBinding.verifySendCodeBtn.setEnabled(true);
+                mViewBinding.verifySendCodeBtn.setText(R.string.get_verification_code);
+            }
+        };
+        mCountDownTimer.start();
+    }
+
     private void onClickConfirm() {
-        String userName = mViewBinding.verifyInputUserNameEt.getText().toString().trim();
+        String phone = mViewBinding.verifyInputPhoneEt.getText().toString().trim();
+        String code = mViewBinding.verifyInputCodeEt.getText().toString().trim();
+
+        if (TextUtils.isEmpty(code)) {
+            mViewBinding.verifyInputCodeWarningTv.setVisibility(View.VISIBLE);
+            mViewBinding.verifyInputCodeWarningTv.setText(R.string.sms_code_empty);
+            return;
+        }
+
+        mViewBinding.verifyInputCodeWarningTv.setVisibility(View.INVISIBLE);
         mViewBinding.verifyConfirm.setEnabled(false);
         IMEUtils.closeIME(mViewBinding.verifyConfirm);
-        LoginApi.passwordFreeLogin(userName, new IRequestCallback<ServerResponse<LoginInfo>>() {
 
+        LoginApi.smsCodeLogin(phone, code, new IRequestCallback<ServerResponse<LoginInfo>>() {
             @Override
             public void onSuccess(ServerResponse<LoginInfo> data) {
                 LoginInfo login = data.getData();
@@ -181,7 +241,7 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener 
             @Override
             public void onError(int errorCode, String message) {
                 SolutionToast.show(ErrorTool.getErrorMessageByErrorCode(errorCode, message));
-                mViewBinding.verifyConfirm.setEnabled(true);
+                mViewBinding.verifyConfirm.setEnabled(false);
             }
         });
     }
@@ -195,6 +255,15 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener 
         Intent i = new Intent(Intent.ACTION_VIEW);
         i.setData(Uri.parse(url));
         startActivity(i);
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        if (mCountDownTimer != null) {
+            mCountDownTimer.cancel();
+            mCountDownTimer = null;
+        }
     }
 
     @Override

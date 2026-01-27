@@ -12,4 +12,11 @@
     <string name="please_enter_user_nickname">请输入用户昵称</string>
     <string name="ok">确定</string>
     <string name="network_message_1011">服务器数据异常</string>
+    <string name="phone_number_hint">手机号</string>
+    <string name="sms_code_hint">验证码</string>
+    <string name="get_verification_code">获取验证码</string>
+    <string name="resend_after_seconds">%d秒</string>
+    <string name="phone_number_invalid">手机号格式不正确</string>
+    <string name="sms_code_empty">请输入验证码</string>
+    <string name="sms_code_sent">验证码已发送</string>
 </resources>

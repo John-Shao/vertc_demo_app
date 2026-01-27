@@ -28,11 +28,11 @@
         app:layout_constraintTop_toTopOf="parent">
 
         <EditText
-            android:id="@+id/verify_input_user_name_et"
+            android:id="@+id/verify_input_phone_et"
             style="@style/EditTextLg"
             android:layout_width="match_parent"
-            android:hint="@string/username"
-            android:inputType="text"
+            android:hint="@string/phone_number_hint"
+            android:inputType="phone"
             android:lines="1"
             android:maxLength="11"
             android:maxLines="1"
@@ -46,7 +46,57 @@
             android:background="#86909C" />
 
         <TextView
-            android:id="@+id/verify_input_user_name_waring_tv"
+            android:id="@+id/verify_input_phone_warning_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:textColor="#F65656"
+            android:textSize="14sp"
+            android:visibility="invisible" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
+            android:orientation="horizontal">
+
+            <EditText
+                android:id="@+id/verify_input_code_et"
+                style="@style/EditTextLg"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:hint="@string/sms_code_hint"
+                android:inputType="number"
+                android:lines="1"
+                android:maxLength="6"
+                android:maxLines="1"
+                android:singleLine="true"
+                android:textColor="@android:color/white"
+                android:textColorHint="#86909C" />
+
+            <TextView
+                android:id="@+id/verify_send_code_btn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:background="@drawable/login_send_code_background"
+                android:gravity="center"
+                android:minWidth="100dp"
+                android:paddingHorizontal="16dp"
+                android:paddingVertical="8dp"
+                android:text="@string/get_verification_code"
+                android:textColor="#4080FF"
+                android:textSize="14sp" />
+        </LinearLayout>
+
+        <View
+            style="@style/DividerLine"
+            android:layout_marginTop="10dp"
+            android:background="#86909C" />
+
+        <TextView
+            android:id="@+id/verify_input_code_warning_tv"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="4dp"

@@ -12,4 +12,11 @@
     <string name="please_enter_user_nickname">Please enter your username</string>
     <string name="ok">OK</string>
     <string name="network_message_1011">Server data exception</string>
+    <string name="phone_number_hint">Phone Number</string>
+    <string name="sms_code_hint">Verification Code</string>
+    <string name="get_verification_code">Get Code</string>
+    <string name="resend_after_seconds">%ds</string>
+    <string name="phone_number_invalid">Invalid phone number</string>
+    <string name="sms_code_empty">Please enter verification code</string>
+    <string name="sms_code_sent">Verification code sent</string>
 </resources>
