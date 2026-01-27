@@ -154,9 +154,7 @@ public class LinkHomeActivity extends AppCompatActivity {
         m_videoListRecycleAdapter.setOnRecordClickListener(new LinkCamListAdapter.OnRecordClickListener() {
             @Override
             public void OnRecordClickListener(View view, int position) {
-                // 打开加入会议页面
-                Intent intent = new Intent(LinkHomeActivity.this, JoinMeetingActivity.class);
-                startActivity(intent);
+                // 功能已迁移到 CameraHomeFragment
             }
         });
 
