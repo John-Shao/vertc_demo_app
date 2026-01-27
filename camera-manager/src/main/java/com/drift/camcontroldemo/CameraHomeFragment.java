@@ -207,6 +207,7 @@ public class CameraHomeFragment extends Fragment {
         }
 
         public void numberOfCamsOnline(ArrayMap<String, CamInfo> arrayList) {
+            
         }
     };
 

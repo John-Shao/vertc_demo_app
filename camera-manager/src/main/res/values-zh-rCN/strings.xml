@@ -62,4 +62,6 @@
     <string name="create_input_user_name_hint">请输入昵称</string>
     <string name="create_input_user_name_content_warn">请输入中文、数字、英文字母或符号@_-</string>
     <string name="create_input_user_name_length_warn">昵称长度不能超过18位</string>
+    <string name="join_meeting_cam_ip_empty">设备IP地址为空</string>
+    <string name="join_meeting_request_failed">加入会议失败</string>
 </resources>
