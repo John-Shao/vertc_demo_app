@@ -70,6 +70,7 @@ public class SceneEntryFragment extends Fragment {
                             return;
                         }
                         if (errorCode == NetworkException.CODE_TOKEN_EXPIRED) {
+                            SolutionDataManager.ins().clear();
                             requestLogin();
                         } else {
                             if (errorCode == NetworkException.CODE_ERROR) {
